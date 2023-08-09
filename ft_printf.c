@@ -6,13 +6,24 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:07:10 by ghwa              #+#    #+#             */
-/*   Updated: 2023/08/09 09:35:30 by ghwa             ###   ########.fr       */
+/*   Updated: 2023/08/09 09:58:34 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #include <stdarg.h>
+
+int	ft_pfstrlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
 
 int	ft_pfformats(va_list args, const char format)
 {
@@ -65,10 +76,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (i);
-}
-
-int	main(void)
-{
-	ft_printf("%p", -1);
-	return (0);
 }
